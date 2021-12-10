@@ -1,11 +1,9 @@
 class KF2GUILabel extends GUILabel;
 
-
-var() byte   AlignMode;
-var() font   KF2Font;
-var() bool   bKorean;
-var() float  KoreanScale;
-
+var()    byte    AlignMode;
+var()    font    KF2Font;
+var()    bool    bKorean;
+var()    float    KoreanScale;
 
 function bool InternalDraw(Canvas canvas)
 {
@@ -24,10 +22,10 @@ function bool InternalDraw(Canvas canvas)
 
     F = Canvas.Font;
     
-    // if (default.bKorean)
-    //   Canvas.Font = class'FHLang_Core'.default.KoreanFont;
-    // else
-    Canvas.Font = KF2Font;
+    if (default.bKorean)
+      Canvas.Font = class'FHLang_Core'.default.KoreanFont;
+    else
+      Canvas.Font = KF2Font;
 
     Canvas.FontScaleX = 1.0;
     Canvas.FontScaleY = 1.0;
@@ -66,10 +64,9 @@ function bool InternalDraw(Canvas canvas)
   return true;
 }
 
-
 defaultproperties
 {
-  KF2Font=Font'KF2HUD.KF2Font'
-  KoreanScale=0.900000
-  OnDraw=KF2GUILabel.InternalDraw
+     KF2Font=Font'FunhouseUI.Elegance'
+     KoreanScale=0.900000
+     OnDraw=KF2GUILabel.InternalDraw
 }
